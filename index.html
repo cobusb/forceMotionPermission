@@ -3,6 +3,9 @@
 function checkForAccess () {
 	
     var displayStatus = document.getElementById("currentStatus");
+
+	console.log (typeof( DeviceMotionEvent ));
+	
 	
     {if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" )
      {      DeviceMotionEvent.requestPermission().then( 
