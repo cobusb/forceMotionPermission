@@ -11,11 +11,10 @@ function checkForAccess () {
                 if ( response == "granted" ) {      
                     window.addEventListener( "devicemotion", (e) => {
                         displayStatus.textContent = e.accelerationIncludingGravity.x + ';' + e.accelerationIncludingGravity.x;
-                        document.getElementById("actionButton").textContent = "Pause";
-                        document.getElementById("actionButton").onclick = pause();
                         
-
                     })         
+                    document.getElementById("actionButton").textContent = "Pause";
+                    document.getElementById("actionButton").onclick = pause();
                 }
                 else
                 {
