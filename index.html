@@ -15,12 +15,16 @@ function checkForAccess () {
 		    displayStatus.textContent = e.accelerationIncludingGravity.x;
 	    	    })         
             }      
-        }).catch( console.error ) 
+        }).catch( errorOccurred ) 
      } 
      else 
      { 
 	  displayStatus.textContent = "Your device does not seem to have the DeviceMotionEvent available."; 
      }
+ }
+
+ function errorOccurred {
+    alert('1');
  }
 }
 </script>
