@@ -11,6 +11,10 @@ function checkForAccess () {
                 if ( response == "granted" ) {      
                     window.addEventListener( "devicemotion", (e) => {
                         displayStatus.textContent = e.accelerationIncludingGravity.x + ';' + e.accelerationIncludingGravity.x;
+                        document.getElementById("actionButton").textContent = "Pause";
+                        document.getElementById("actionButton").onclick = pause();
+                        
+
                     })         
                 }
                 else
@@ -26,6 +30,13 @@ function checkForAccess () {
     }
 }
 
+function pause() {
+
+    let displayStatus = document.getElementById("currentStatus");
+	displayStatus.textContent = "Welcome!";
+
+}
+
 </script>
-<button style="font-size:25" onclick="checkForAccess()">See permission</button>
+<button id="actionButton" style="font-size:25" onclick="checkForAccess()">See permission</button>
 <div style="font-size:40" id='currentStatus'></div>
