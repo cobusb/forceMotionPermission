@@ -6,13 +6,17 @@ function checkForAccess () {
 	
     {if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" )
      {      DeviceMotionEvent.requestPermission().then( 
-		response => {         
-            if ( response == "granted" ) {      
-    		    window.addEventListener( "devicemotion", (e) => {
-		    displayStatus.textContent = e.accelerationIncludingGravity.x + ';' + e.accelerationIncludingGravity.x;
-	    	    })         
-            }      
-        }).catch( console.error ) 
+            response => {         
+                if ( response == "granted" ) {      
+                    window.addEventListener( "devicemotion", (e) => {
+                        displayStatus.textContent = e.accelerationIncludingGravity.x + ';' + e.accelerationIncludingGravity.x;
+                    })         
+                }
+                else
+                {
+                    displayStatus.textContent = "Permission Denied - restart broweser to be able re-enable access.";
+                }      
+            }).catch( console.error ) 
      } 
      else 
      { 
