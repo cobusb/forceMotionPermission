@@ -1,11 +1,15 @@
 <script>
 
-function permission () 
+function checkForAccess () 
+	
+    let displayStatus = document.getElementByHTML('currentStatus');
+	
     {if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" )
      {      DeviceMotionEvent.requestPermission().then( 
 		response => {         
             if ( response == "granted" ) {      
-    		    window.addEventListener( "devicemotion", (e) => { 
+    		    window.addEventListener( "devicemotion", (e) => {
+		    displayStatus.textContent = e;
 	            console.log(e)              
 	    	    })         
             }      
@@ -13,8 +17,10 @@ function permission ()
      } 
      else 
      { 
+	      displayStatus.textContent = "Not supported by device."; 
               console.log( "Your device does not seem to have the DeviceMotionEvent available." );  
      }
     }
 </script>
-<button onclick="permission()">Force</button>
+<button onclick="checkForAccess()">See permission</button>
+<div id='currentStatus'></div>
