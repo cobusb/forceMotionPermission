@@ -9,15 +9,14 @@ function checkForAccess () {
 		response => {         
             if ( response == "granted" ) {      
     		    window.addEventListener( "devicemotion", (e) => {
-		    displayStatus.textContent = e;
+		    displayStatus.textContent = e.accelerationIncludingGravity.x;
 	    	    })         
             }      
         }).catch( console.error ) 
      } 
      else 
      { 
-	      displayStatus.textContent = "Not supported by device."; 
-              console.log( "Your device does not seem to have the DeviceMotionEvent available." );  
+	      displayStatus.textContent = "Your device does not seem to have the DeviceMotionEvent available."; 
      }
  }
 }
