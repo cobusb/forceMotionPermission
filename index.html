@@ -12,7 +12,7 @@ function checkForAccess () {
 		response => {         
             if ( response == "granted" ) {      
     		    window.addEventListener( "devicemotion", (e) => {
-		    displayStatus.textContent = e.accelerationIncludingGravity.x;
+		    displayStatus.textContent = e.accelerationIncludingGravity.x + ';' + e.accelerationIncludingGravity.x;
 	    	    })         
             }      
         }).catch( errorOccurred ) 
