@@ -2,7 +2,7 @@
 
 function checkForAccess () 
 	
-    let displayStatus = document.getElementByID('currentStatus');
+    let displayStatus = document.getElementById('currentStatus');
 	
     {if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" )
      {      DeviceMotionEvent.requestPermission().then( 
@@ -10,7 +10,6 @@ function checkForAccess ()
             if ( response == "granted" ) {      
     		    window.addEventListener( "devicemotion", (e) => {
 		    displayStatus.textContent = e;
-	            console.log(e)              
 	    	    })         
             }      
         }).catch( console.error ) 
@@ -22,5 +21,5 @@ function checkForAccess ()
      }
     }
 </script>
-<button onclick="checkForAccess()">See permission</button>
+<button style="font-size:25" onclick="checkForAccess()">See permission</button>
 <div id='currentStatus'></div>
