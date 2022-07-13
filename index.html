@@ -14,7 +14,7 @@ function checkForAccess () {
                         
                     })         
                     document.getElementById("actionButton").textContent = "Pause";
-                    document.getElementById("actionButton").onclick = pause();
+                    document.getElementById("actionButton").onclick = "pause";
                 }
                 else
                 {
@@ -33,9 +33,11 @@ function pause() {
 
     let displayStatus = document.getElementById("currentStatus");
 	displayStatus.textContent = "Welcome!";
+    document.getElementById("actionButton").textContent = "Start";
+    document.getElementById("actionButton").onclick = "checkForAccess";
 
 }
 
 </script>
-<button id="actionButton" style="font-size:25" onclick="checkForAccess()">See permission</button>
+<button id="actionButton" style="font-size:25" onclick="checkForAccess()">Start</button>
 <div style="font-size:40" id='currentStatus'></div>
