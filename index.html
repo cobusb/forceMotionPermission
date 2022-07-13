@@ -3,9 +3,6 @@
 function checkForAccess () {
 	
     var displayStatus = document.getElementById("currentStatus");
-
-	console.log (DeviceMotionEvent.toString());
-	
 	
     {if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" )
      {      DeviceMotionEvent.requestPermission().then( 
@@ -15,18 +12,15 @@ function checkForAccess () {
 		    displayStatus.textContent = e.accelerationIncludingGravity.x + ';' + e.accelerationIncludingGravity.x;
 	    	    })         
             }      
-        }).catch( errorOccurred ) 
+        }).catch( console.error ) 
      } 
      else 
      { 
 	  displayStatus.textContent = "Your device does not seem to have the DeviceMotionEvent available."; 
      }
  }
-
- function errorOccurred() {
-    alert('1');
- }
 }
+
 </script>
 <button style="font-size:25" onclick="checkForAccess()">See permission</button>
 <div style="font-size:40" id='currentStatus'></div>
