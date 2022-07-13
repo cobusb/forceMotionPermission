@@ -2,7 +2,7 @@
 
 function checkForAccess () 
 	
-    let displayStatus = document.getElementById('currentStatus');
+    const displayStatus = document.getElementById("currentStatus");
 	
     {if ( typeof( DeviceMotionEvent ) !== "undefined" && typeof( DeviceMotionEvent.requestPermission ) === "function" )
      {      DeviceMotionEvent.requestPermission().then( 
