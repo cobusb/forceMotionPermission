@@ -1,6 +1,6 @@
 <script>
 
-function checkForAccess () 
+function checkForAccess () {
 	
     var displayStatus = document.getElementById("currentStatus");
 	
@@ -19,7 +19,8 @@ function checkForAccess ()
 	      displayStatus.textContent = "Not supported by device."; 
               console.log( "Your device does not seem to have the DeviceMotionEvent available." );  
      }
-    }
+ }
+
 </script>
 <button style="font-size:25" onclick="checkForAccess()">See permission</button>
 <div id='currentStatus'></div>
