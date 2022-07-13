@@ -12,7 +12,7 @@ function checkForAccess () {
 		    displayStatus.textContent = e.accelerationIncludingGravity.x;
 	    	    })         
             }      
-        }).catch( console.error ) 
+        }).catch( displayStatus.textContent="Error"; ) 
      } 
      else 
      { 
